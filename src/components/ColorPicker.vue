@@ -17,6 +17,7 @@
 <script>
   export default {
     props: {
+      callback: String,
       value: String,
       content: {
         type: String,
@@ -33,7 +34,8 @@
     },
     methods: {
       picked: function (color) {
-        this.$emit('input', color)
+        this.$parent[this.callback](color);
+        //this.$emit('input', color)
       }
     }
   }
